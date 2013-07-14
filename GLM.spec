@@ -12,6 +12,7 @@ Source0:	http://downloads.sourceforge.net/ogl-math/glm-%{version}.7z
 # Source0-md5:	1c5a626c025dff9664b08d8f39c7e11b
 URL:		http://glm.g-truc.net/
 BuildRequires:	cmake
+BuildRequires:	p7zip-standalone
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
