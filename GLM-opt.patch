@@ -1,11 +1,10 @@
---- glm/CMakeLists.txt.orig	2015-02-14 00:51:28.000000000 +0100
-+++ glm/CMakeLists.txt	2015-05-30 09:11:37.100401554 +0200
-@@ -129,8 +129,6 @@
- if(CMAKE_COMPILER_IS_GNUCXX)
- 	#add_definitions(-S)
- 	#add_definitions(-s)
--	add_definitions(-m64)
--	add_definitions(-O2)
+--- glm/CMakeLists.txt.orig	2018-05-07 14:23:01.000000000 +0200
++++ glm/CMakeLists.txt	2018-07-15 13:23:19.253074479 +0200
+@@ -143,7 +143,6 @@
+ elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+ 	message("GLM: GCC - ${CMAKE_CXX_COMPILER_ID} compiler")
  
- 	#add_definitions(-fprofile-arcs -ftest-coverage) gcov
- 	#ctest_enable_coverage()
+-	add_compile_options(-O2)
+ 	add_compile_options(-Wno-long-long)
+ 
+ elseif(CMAKE_CXX_COMPILER_ID MATCHES "Intel")

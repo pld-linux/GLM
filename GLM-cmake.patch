@@ -1,0 +1,20 @@
+--- glm/CMakeLists.txt.orig	2018-07-15 13:27:48.513071410 +0200
++++ glm/CMakeLists.txt	2018-07-15 13:33:18.783067635 +0200
+@@ -176,7 +176,7 @@
+ # install tree package config
+ configure_package_config_file(
+ 	cmake/glmConfig.cmake.in
+-	${GLM_INSTALL_CONFIGDIR}/glmConfig.cmake
++	${CMAKE_CURRENT_BINARY_DIR}/glmConfig.cmake
+ 	INSTALL_DESTINATION ${GLM_INSTALL_CONFIGDIR}
+ 	PATH_VARS CMAKE_INSTALL_INCLUDEDIR
+ 	NO_CHECK_REQUIRED_COMPONENTS_MACRO)
+@@ -183,7 +183,7 @@
+ 
+ if(GLM_INSTALL_ENABLE)
+ 	install(FILES
+-		"${CMAKE_CURRENT_BINARY_DIR}/${GLM_INSTALL_CONFIGDIR}/glmConfig.cmake"
++		"${CMAKE_CURRENT_BINARY_DIR}/glmConfig.cmake"
+ 		"${CMAKE_CURRENT_BINARY_DIR}/glmConfigVersion.cmake"
+ 		DESTINATION ${GLM_INSTALL_CONFIGDIR})
+ endif()
