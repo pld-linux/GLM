@@ -1,0 +1,11 @@
+--- glm/glm/detail/setup.hpp.orig	2019-04-02 11:27:10.000000000 +0200
++++ glm/glm/detail/setup.hpp	2019-08-03 14:14:01.942258319 +0200
+@@ -6,7 +6,7 @@
+ #define GLM_VERSION_MAJOR			0
+ #define GLM_VERSION_MINOR			9
+ #define GLM_VERSION_PATCH			9
+-#define GLM_VERSION_REVISION		4
++#define GLM_VERSION_REVISION			5
+ #define GLM_VERSION					995
+ #define GLM_VERSION_MESSAGE			"GLM: version 0.9.9.5"
+ 
