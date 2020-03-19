@@ -1,0 +1,17 @@
+--- glm/test/core/core_setup_message.cpp.orig	2020-03-19 23:36:32.000000000 +0100
++++ glm/test/core/core_setup_message.cpp	2020-03-19 23:43:46.417701188 +0100
+@@ -155,7 +155,13 @@
+ {
+ 	int Error = 0;
+ 	
+-	Error += ((sizeof(void*) == 4) && (GLM_MODEL == GLM_MODEL_32)) || ((sizeof(void*) == 8) && (GLM_MODEL == GLM_MODEL_64)) ? 0 : 1;
++	Error += 
++		((sizeof(void*) == 4) && (GLM_MODEL == GLM_MODEL_32)) || 
++		((sizeof(void*) == 8) && (GLM_MODEL == GLM_MODEL_64))
++#ifdef __ILP32__
++		|| ((sizeof(void*) == 4) && (GLM_MODEL == GLM_MODEL_64))
++#endif
++		? 0 : 1;
+ 	
+ 	if(GLM_MODEL == GLM_MODEL_32)
+ 		std::printf("GLM_MODEL_32\n");
