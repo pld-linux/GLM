@@ -6,15 +6,14 @@
 Summary:	OpenGL Mathematics (GLM) - C++ mathematics library for GLSL
 Summary(pl.UTF-8):	OpenGL Mathematics (GLM) - biblioteka matematyczna C++ dla GLSL
 Name:		GLM
-Version:	0.9.9.6
+Version:	0.9.9.8
 Release:	1
 License:	MIT
 Group:		Development/Libraries
 #Source0Download: https://github.com/g-truc/glm/releases
 Source0:	https://github.com/g-truc/glm/releases/download/%{version}/glm-%{version}.7z
-# Source0-md5:	546245878ba4fc64f9af03c1c88b9ec9
-Patch0:		%{name}-opt.patch
-Patch1:		x32.patch
+# Source0-md5:	c8342552801ebeb31497288192c4e793
+Patch0:		x32.patch
 URL:		https://glm.g-truc.net/
 BuildRequires:	cmake >= 3.2
 %if %{with p7zip}
@@ -44,7 +43,6 @@ graficznych opartych na specyfikacji OpenGL Shading Language (GLSL).
 %setup -q -n glm
 %endif
 %patch0 -p1
-%patch1 -p1
 
 %build
 mkdir build
