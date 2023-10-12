@@ -16,12 +16,14 @@ Source0:	https://github.com/g-truc/glm/releases/download/%{version}/glm-%{versio
 Patch0:		x32.patch
 URL:		https://glm.g-truc.net/
 BuildRequires:	cmake >= 3.2
+%{?with_tests:BuildRequires:	libstdc++-devel}
 %if %{with p7zip}
 BuildRequires:	p7zip
 %else
 BuildRequires:	p7zip-standalone
 BuildRequires:	rpm-build >= 5
 %endif
+Requires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
