@@ -17,6 +17,7 @@ Patch0:		x32.patch
 URL:		https://glm.g-truc.net/
 BuildRequires:	cmake >= 3.2
 %{?with_tests:BuildRequires:	libstdc++-devel}
+BuildRequires:	rpmbuild(macros) >= 1.605
 %if %{with p7zip}
 BuildRequires:	p7zip
 %else
