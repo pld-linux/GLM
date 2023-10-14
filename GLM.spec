@@ -31,6 +31,8 @@ BuildRequires:	rpm-build >= 5
 Requires:	libstdc++-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_enable_debug_packages	0
+
 %description
 OpenGL Mathematics (GLM) is a C++ mathematics library for graphics
 software based on the OpenGL Shading Language (GLSL) specification.
