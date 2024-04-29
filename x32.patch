@@ -1,17 +1,37 @@
---- glm/test/core/core_setup_message.cpp.orig	2020-03-19 23:36:32.000000000 +0100
-+++ glm/test/core/core_setup_message.cpp	2020-03-19 23:43:46.417701188 +0100
-@@ -155,7 +155,13 @@
+--- glm-1.0.1/test/core/core_setup_message.cpp.orig	2024-02-27 18:19:47.000000000 +0100
++++ glm-1.0.1/test/core/core_setup_message.cpp	2024-04-29 17:54:10.823524118 +0200
+@@ -223,8 +223,14 @@ static int test_compiler()
+ static int test_model()
  {
  	int Error = 0;
- 	
+-	
 -	Error += ((sizeof(void*) == 4) && (GLM_MODEL == GLM_MODEL_32)) || ((sizeof(void*) == 8) && (GLM_MODEL == GLM_MODEL_64)) ? 0 : 1;
-+	Error += 
-+		((sizeof(void*) == 4) && (GLM_MODEL == GLM_MODEL_32)) || 
-+		((sizeof(void*) == 8) && (GLM_MODEL == GLM_MODEL_64))
-+#ifdef __ILP32__
-+		|| ((sizeof(void*) == 4) && (GLM_MODEL == GLM_MODEL_64))
++
++	bool supported64 =
++#if defined(__x86_64__) && defined(__ILP32__)
++		true;
++#else
++		(sizeof(void*) == 8);
 +#endif
-+		? 0 : 1;
++	Error += ((sizeof(void*) == 4) && (GLM_MODEL == GLM_MODEL_32)) || (supported64 && (GLM_MODEL == GLM_MODEL_64)) ? 0 : 1;
  	
- 	if(GLM_MODEL == GLM_MODEL_32)
+ #	if GLM_MODEL == GLM_MODEL_32
  		std::printf("GLM_MODEL_32\n");
+--- glm-1.0.1/glm/gtx/string_cast.inl.orig	2024-02-27 18:19:47.000000000 +0100
++++ glm-1.0.1/glm/gtx/string_cast.inl	2024-04-29 17:54:31.413345096 +0200
+@@ -58,7 +58,6 @@ namespace detail
+ 		GLM_FUNC_QUALIFIER static char const * value() {return "%f";}
+ 	};
+ 
+-#	if GLM_MODEL == GLM_MODEL_32 && GLM_COMPILER && GLM_COMPILER_VC
+ 	template<>
+ 	struct literal<uint64_t, false>
+ 	{
+@@ -70,7 +69,6 @@ namespace detail
+ 	{
+ 		GLM_FUNC_QUALIFIER static char const * value() {return "%lld";}
+ 	};
+-#	endif//GLM_MODEL == GLM_MODEL_32 && GLM_COMPILER && GLM_COMPILER_VC
+ 
+ 	template<typename T>
+ 	struct prefix{};
