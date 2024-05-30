@@ -36,6 +36,7 @@ Group:		Development/Libraries
 Requires:	libstdc++-devel
 # no base dependency - can be used as header-only library
 # not noarch due to paths in cmake configs
+Obsoletes:	GLM < 1.0.1
 
 %description devel
 OpenGL Mathematics (GLM) is a C++ mathematics library for graphics
