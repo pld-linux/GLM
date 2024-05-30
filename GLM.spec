@@ -13,6 +13,7 @@ Group:		Libraries
 Source0:	https://github.com/g-truc/glm/archive/%{version}/glm-%{version}.tar.gz
 # Source0-md5:	f824ac50e16310a95279032f82cbd341
 Patch0:		x32.patch
+Patch1:		%{name}-types.patch
 URL:		https://glm.g-truc.net/
 BuildRequires:	cmake >= 3.6
 %{?with_tests:BuildRequires:	libstdc++-devel}
@@ -47,6 +48,7 @@ graficznych opartych na specyfikacji OpenGL Shading Language (GLSL).
 %prep
 %setup -q -n glm-%{version}
 %patch0 -p1
+%patch1 -p1
 
 %build
 mkdir build
