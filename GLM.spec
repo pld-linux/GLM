@@ -48,8 +48,8 @@ graficznych opartych na specyfikacji OpenGL Shading Language (GLSL).
 
 %prep
 %setup -q -n glm-%{version}
-%patch0 -p1
-%patch1 -p1
+%patch -P0 -p1
+%patch -P1 -p1
 
 %build
 mkdir build
