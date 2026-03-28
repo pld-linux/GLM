@@ -31,11 +31,11 @@ graficznych opartych na specyfikacji OpenGL Shading Language (GLSL).
 Summary:	OpenGL Mathematics (GLM) - C++ mathematics library for GLSL (header files)
 Summary(pl.UTF-8):	OpenGL Mathematics (GLM) - biblioteka matematyczna C++ dla GLSL (pliki nagłówkowe)
 Group:		Development/Libraries
-Requires:	%{name} >= %{version}
 Requires:	libstdc++-devel
-# no base dependency - can be used as header-only library
-# not noarch due to paths in cmake configs
+# no hard base dependency - can be used as header-only library
+Suggests:	%{name} = %{version}-%{release}
 Obsoletes:	GLM < 1.0.1
+# not noarch due to paths in cmake configs
 
 %description devel
 OpenGL Mathematics (GLM) is a C++ mathematics library for graphics
